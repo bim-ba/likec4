@@ -1,5 +1,14 @@
 # @likec4/style-preset
 
+## 1.60.1
+
+### Patch Changes
+
+- [#3366](https://github.com/likec4/likec4/pull/3366) [`250bd2c`](https://github.com/likec4/likec4/commit/250bd2c4ec45c5ee24c54844cf9a0bb64d653140) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Model diffs in the UI, see [discussion #1192](https://github.com/likec4/likec4/discussions/1192):
+  
+  - Compare views: the view before and after the diff in one diagram, with added, removed and modified elements and relationships marked. Switch between as-is, changes and to-be modes in the playground, `likec4 start` and static builds (`likec4 build`). Vite plugin users get them from the `likec4:diffs` virtual module.
+  - Playground: review the changes of each file before they are applied, and roll back an applied change.
+
 ## 1.60.0
 
 ### Patch Changes

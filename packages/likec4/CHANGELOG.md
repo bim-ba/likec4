@@ -1,5 +1,29 @@
 # likec4
 
+## 1.60.1
+
+### Patch Changes
+
+- [#3458](https://github.com/likec4/likec4/pull/3458) [`6361dbc`](https://github.com/likec4/likec4/commit/6361dbc62c8f7c198d4721fce9cdfb4ca66ce0ef) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Element details, relationship details, and the relationship browser stay available on compare views, including elements a diff adds or removes. The details card shows the diff status.
+
+- [#3366](https://github.com/likec4/likec4/pull/3366) [`ca1ba7b`](https://github.com/likec4/likec4/commit/ca1ba7b20116671ac1d2c3a71408d5e504e21989) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Model diffs, see [discussion #1192](https://github.com/likec4/likec4/discussions/1192): new `diff` block, a named change set of the model (`remove` elements and relationships, `add` model elements, `extend` existing elements). The model stays as is: diffs are validated against it, and views can reference elements that a diff adds.
+
+- [#3366](https://github.com/likec4/likec4/pull/3366) [`c313fb0`](https://github.com/likec4/likec4/commit/c313fb0ad5428e6cec5f752dcdf0d290a686b0dc) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Model diffs: apply, discard and safe delete, see [discussion #1192](https://github.com/likec4/likec4/discussions/1192):
+  
+  - Apply or discard a diff: the `add` blocks are merged into the element definitions of the model files. Code actions in the editor, `likec4 diff list`, and `likec4 diff apply|discard [--dry-run]`.
+  - Overlapping diffs (both change the same element or relationship, or one depends on the other) are reported on both diffs and never resolved automatically: applying an overlapping diff needs a confirmation (`--accept-overlaps`). Other diffs are never edited; the diffs an edit breaks are reported.
+  - Safe delete: remove an element and everything that references it in one edit, with a dry run that reports relationships, deployed instances, affected views and orphans. Code action in the editor, `likec4 safe-delete [--dry-run]`, and the MCP tools `removal-impact` and `list-diffs`.
+
+- [#3366](https://github.com/likec4/likec4/pull/3366) [`250bd2c`](https://github.com/likec4/likec4/commit/250bd2c4ec45c5ee24c54844cf9a0bb64d653140) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Model diffs in the UI, see [discussion #1192](https://github.com/likec4/likec4/discussions/1192):
+  
+  - Compare views: the view before and after the diff in one diagram, with added, removed and modified elements and relationships marked. Switch between as-is, changes and to-be modes in the playground, `likec4 start` and static builds (`likec4 build`). Vite plugin users get them from the `likec4:diffs` virtual module.
+  - Playground: review the changes of each file before they are applied, and roll back an applied change.
+
+- [#3440](https://github.com/likec4/likec4/pull/3440) [`7ad172a`](https://github.com/likec4/likec4/commit/7ad172af74d0de82577c8dc73cf7ce7550a3e3a4) Thanks [@AndersHogqvist](https://github.com/AndersHogqvist)! - Update the container image to Debian 13. Fixes [#3426](https://github.com/likec4/likec4/issues/3426)
+- Updated dependencies [[`aaa53f4`](https://github.com/likec4/likec4/commit/aaa53f42e7e3d20aa0cc85b7c63b4d2b1753738c), [`3928222`](https://github.com/likec4/likec4/commit/3928222677937716bec5fe3f0999362cbba0dd27), [`c5eaa85`](https://github.com/likec4/likec4/commit/c5eaa85423a74f43f3e233e3c2db5aade1b9ed12), [`b7ebce3`](https://github.com/likec4/likec4/commit/b7ebce3c1cdd0f9d92ff284a82e09e07b76f935d), [`ca1ba7b`](https://github.com/likec4/likec4/commit/ca1ba7b20116671ac1d2c3a71408d5e504e21989), [`c313fb0`](https://github.com/likec4/likec4/commit/c313fb0ad5428e6cec5f752dcdf0d290a686b0dc), [`9e106b8`](https://github.com/likec4/likec4/commit/9e106b8d205b589d49e9c72d2a80dcdfb74a4aa1)]:
+  - @likec4/core@1.60.1
+  - @likec4/icons@1.46.5
+
 ## 1.60.0
 
 ### Patch Changes

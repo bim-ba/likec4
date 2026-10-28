@@ -1,5 +1,17 @@
 # @likec4/mcp
 
+## 1.60.1
+
+### Patch Changes
+
+- [#3303](https://github.com/likec4/likec4/pull/3303) [`30ed48d`](https://github.com/likec4/likec4/commit/30ed48d243114efaf38c9079944a6c53950c4627) Thanks [@parse](https://github.com/parse)! - `search-element` returns each result's `description` and is now fuzzy and ranked by relevance. Plain words match name, title, id, description and link path segments (except the first) and tolerate typos. Words and `kind:`, `shape:`, `meta:` and `#tag` conditions can be combined and must all match, for example `kind:container #public checkout`.
+
+- [#3366](https://github.com/likec4/likec4/pull/3366) [`c313fb0`](https://github.com/likec4/likec4/commit/c313fb0ad5428e6cec5f752dcdf0d290a686b0dc) Thanks [@edeak-jsq](https://github.com/edeak-jsq)! - Model diffs: apply, discard and safe delete, see [discussion #1192](https://github.com/likec4/likec4/discussions/1192):
+  
+  - Apply or discard a diff: the `add` blocks are merged into the element definitions of the model files. Code actions in the editor, `likec4 diff list`, and `likec4 diff apply|discard [--dry-run]`.
+  - Overlapping diffs (both change the same element or relationship, or one depends on the other) are reported on both diffs and never resolved automatically: applying an overlapping diff needs a confirmation (`--accept-overlaps`). Other diffs are never edited; the diffs an edit breaks are reported.
+  - Safe delete: remove an element and everything that references it in one edit, with a dry run that reports relationships, deployed instances, affected views and orphans. Code action in the editor, `likec4 safe-delete [--dry-run]`, and the MCP tools `removal-impact` and `list-diffs`.
+
 ## 1.60.0
 
 ### Patch Changes
